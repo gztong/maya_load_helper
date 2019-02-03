@@ -1,0 +1,27 @@
+global string $gMainWindow;
+    setParent $gMainWindow;
+    menu
+    -label "load"
+    -parent $gMainWindow
+    -tearOff on
+    load_menu;
+    menuItem
+    -c "load"
+    -ann "load"
+    -label "load"
+    -echoCommand true;
+    menuItem
+    -c "unload"
+    -ann "unload"
+    -label "unload"
+    -echoCommand true;
+
+global proc load()
+{
+    loadPlugin -n "lsystem" "E:/CIS660/hw02/MayaPluginHw2/x64/Debug/LSystemMaya.mll";
+}
+
+global proc unload()
+{
+    unloadPlugin -force lsystem;
+}
